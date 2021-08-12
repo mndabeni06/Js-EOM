@@ -1,5 +1,6 @@
 let products = [];
 let cart = [];
+console.log(cart);
 
 fetch("https://ancient-dawn-92955.herokuapp.com/get_products/")
   .then((res) => res.json())
@@ -20,7 +21,7 @@ function showproducts(products) {
         <h4 class = "product-title"> ${product.product_name}</h4>
         <p class = "product-description"> ${product.description}</p>
         <p class = "product-price">R${product.price} </p>
-        <button onclick="addTocart(${product.id})"> Add to cart</button>
+        <button onclick="addToCart(${product.id})"> Add to cart</button>
         </div>
     </div>
 
@@ -28,9 +29,11 @@ function showproducts(products) {
   });
 }
 
-function addTocart(id) {
-  let product = products.find((item) => {
-    return item.id == id;
+function addToCart(id) {
+  let product = products.data.find((item) => {
+    return (item.id = id);
   });
   console.log(product);
+  cart.push(product);
+  console.log(cart);
 }
