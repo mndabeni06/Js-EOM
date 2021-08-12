@@ -8,8 +8,18 @@
     <title>View Products</title>
   </head>
   <body>
-    <h1>Welocme to my Point of Sale</h1>
+    <!--Heading-->
+    <h1 style="margin-top: 80px; text-align: center">
+      Welcome to my Point of Sale
+    </h1>
+    <!--Products-Container-->
     <div id="products-container"></div>
+    <div id="filters">
+      <form onsubmit="event.preventDefault(); searchForItems()">
+        <input type="text" required id="searchTerm" />
+        <button type="submit" class="move-top">Search</button>
+      </form>
+    </div>
   </body>
   <script src="./products.js"></script>
 </html>

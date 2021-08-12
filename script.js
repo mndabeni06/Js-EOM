@@ -17,3 +17,23 @@ $(() => {
   $("#logreg-forms #btn-signup").click(toggleSignUp);
   $("#logreg-forms #cancel_signup").click(toggleSignUp);
 });
+
+function signin() {
+  fetch("https://ancient-dawn-92955.herokuapp.com/auth", {
+    method: "POST",
+    body: JSON.stringify({
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+    }),
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      console.log(data["access_token"]);
+      mystorage.setItem("jwt-token", data["access_token"]);
+      window.location.href = "./products.html";
+    });
+}

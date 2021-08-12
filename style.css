@@ -1,5 +1,6 @@
 body {
-  background: #039dfc;
+  background: rgba(12, 12, 12, 0.25);
+  backdrop-filter: blur(4px);
 }
 
 /* sign in FORM */
@@ -148,4 +149,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.move-top {
+  margin-top: 20px;
 }
