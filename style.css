@@ -150,7 +150,3 @@ body {
   flex-direction: column;
   gap: 10px;
 }
-
-.move-top {
-  margin-top: 20px;
-}

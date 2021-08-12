@@ -10,7 +10,7 @@ fetch("https://ancient-dawn-92955.herokuapp.com/get_products/")
     showproducts(products);
   });
 
-//* Show-Profucts Button*//
+//* Show-Products Button*//
 function showproducts(products) {
   let product_container = document.querySelector("#products-container");
   product_container.innerHTML = "";
@@ -41,7 +41,13 @@ function addToCart(id) {
 
 //* Search Button *//
 
-function searchForItems() {
-  let searchTerm = document.querySelector("#searchTerm").value;
-  console.log(searchTerm);
+function searchForProducts() {
+  let searchTerm = document.querySelector("#searchProducts").value;
+  console.log(searchProducts);
+
+  let searchedProducts = products.data.filter((product) =>
+    product.product_name.toLowerCase().startsWith(searchTerm.toLowerCase())
+  );
+  console.log(searchedProducts);
+  showproducts(searchedProducts);
 }
