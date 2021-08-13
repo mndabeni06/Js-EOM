@@ -150,3 +150,8 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+
+#filters {
+  display: flex;
+  margin-top: -2110px;
+}

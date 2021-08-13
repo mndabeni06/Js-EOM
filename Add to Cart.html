@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Products</title>
+  </head>
+  <body>
+    <h3>Add New Products Here</h3>
+    <form
+      id="contact-form"
+      action="https://ancient-dawn-92955.herokuapp.com/create-products/"
+      method="POST"
+    >
+      <!--email label-->
+      <div class="form-group">
+        <label class="from-labels" for="email">Product name</label>
+        <input
+          class="form-input"
+          type="text"
+          name="prod_name"
+          id="prod_name"
+          placeholder="Product Name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="from-labels" for="email">Product price</label>
+        <input
+          class="form-input"
+          type="number"
+          name="price"
+          id="price"
+          placeholder="Product price"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="from-labels" for="email">Product description</label>
+        <input
+          class="form-input"
+          type="text area"
+          name="description"
+          id="description"
+          placeholder="Product description"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="from-labels" for="contact">Upload Image</label>
+        <input
+          class="form-input"
+          type="file"
+          name="image"
+          id="image"
+          placeholder="imageurl"
+          required
+        />
+      </div>
+
+      <!-- The submit button-->
+
+      <button class="button" type="submit">Submit</button>
+    </form>
+  </body>
+</html>
