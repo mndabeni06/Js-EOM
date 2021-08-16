@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="stylesheet"
@@ -30,7 +31,11 @@
   <body>
     <!--Login-->
     <div id="logreg-forms">
-      <form class="form-signin" method="POST">
+      <form
+        class="form-signin"
+        method="POST"
+        action="https://ancient-dawn-92955.herokuapp.com/auth"
+      >
         <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">
           Sign in
         </h1>
@@ -53,7 +58,7 @@
 
         <button class="btn btn-success btn-block" type="submit">
           <i class="fas fa-sign-in-alt"></i> Sign in
-          <!-- <a href="/products.html"></a> -->
+          <a href="/products.html"></a>
         </button>
 
         <a href="#" id="forgot_pswd">Forgot password?</a>
@@ -83,7 +88,7 @@
       <!--Registration Page-->
       <form
         class="form-signup"
-        action="https://ancient-dawn-92955.herokuapp.com/auth"
+        action="https://ancient-dawn-92955.herokuapp.com/user-registration/"
         method="POST"
       >
         <input
@@ -157,7 +162,7 @@
         />
 
         <button class="btn btn-primary btn-block" type="submit">
-          <i class="fas fa-user-plus"></i> Sign Up
+          <i class="fas fa-user-plus"></i> Sign up
         </button>
         <a href="#" id="cancel_signup"
           ><i class="fas fa-angle-left"></i> Back</a

@@ -48,14 +48,30 @@ function searchForProducts() {
     products.product_name.toLowerCase().startsWith(searchTerm.toLowerCase())
   );
   console.log(searchedProducts);
-  showproducts(searchedProducts);
+
+  if (searchedProducts.length == 0) {
+    document.querySelector("#products-container").innerHTML =
+      "<h2>Opps! No results found<h2>";
+  } else {
+    showproducts(searchedProducts);
+  }
 }
 
 function sortNameAsc() {
   let sortedProducts = products.sort((a, b) => {
-    if (a.product_name < b.product_name) return 1;
-    if (a.product_name > b.product_name) return -1;
+    if (a.product_name > b.id) return 1;
+    if (a.product_name < b.id) return -1;
     return 0;
   });
+  showproducts(sortedProducts);
+}
+
+function sortNameDesc() {
+  let sortedProducts = products.sort((a, b) => {
+    if (a.product_name > b.id) return 1;
+    if (a.product_name < b.id) return -1;
+    return 0;
+  });
+  sortedProducts.reverse();
   showproducts(sortedProducts);
 }

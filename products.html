@@ -16,11 +16,12 @@
     <div id="products-container"></div>
     <!--Filters-->
     <div id="filters">
-      <form onsubmit="event.preventDefault(); searchForProducts()">
+      <form onsubmit="event.preventDefault(); searchForProducts();">
         <input type="text" required id="searchTerm" />
         <button type="submit">Search</button>
       </form>
-      <button onclick="sorNameAsc">Sort by Name</button>
+      <button onclick="sortNameAsc()">Sort by Name Asc</button>
+      <button onclick="sortNameDesc()">Sort by Name Desc</button>
     </div>
   </body>
   <script src="./products.js"></script>
