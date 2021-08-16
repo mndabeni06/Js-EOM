@@ -14,17 +14,9 @@
     </h1>
     <!--Products-Container-->
     <div id="products-container"></div>
-    <!--Filters-->
-    <div id="filters">
-      <form onsubmit="event.preventDefault(); searchForProducts();">
-        <input type="text" required id="searchTerm" />
-        <button type="submit">Search</button>
-      </form>
-      <button onclick="sortNameAsc()">Sort by Name Asc</button>
-      <button onclick="sortNameDesc()">Sort by Name Desc</button>
-    </div>
+
     <!--Cart-->
-    <div id="cart">You have no Items in The Cart</div>
+    <div id="cart"></div>
     <button onclick="toggleCart()" id="cart-button">CART</button>
   </body>
   <script src="./products.js"></script>

@@ -43,7 +43,7 @@ function renderCart(cartItems) {
                 <h4 class = "product-title"> ${cartItem.product_name}</h4>
                 <p class = "product-description"> ${cartItem.description}</p>
                 <p class = "product-price">R${cartItem.price} </p>
-                <button class ="revome_cart" onclick="removeItem()">Remove item</button>
+                <button class ="revome_cart"  onclick="removeItem(${cartItem.id})">Remove item</button>
             </div>
             
         </div>
@@ -67,46 +67,6 @@ function addToCart(id) {
   cart.push(product);
   renderCart(cart);
   console.log("See Cart Items Here: ", cart);
-}
-
-//* Search Button *//
-function searchForProducts() {
-  let searchTerm = document.querySelector("#searchTerm").value;
-  console.log(searchTerm);
-
-  let searchedProducts = products.data.filter((products) =>
-    products.product_name.toLowerCase().startsWith(searchTerm.toLowerCase())
-  );
-  console.log(searchedProducts);
-
-  if (searchedProducts.length == 0) {
-    document.querySelector("#products-container").innerHTML =
-      "<h2>Opps! No results found<h2>";
-  } else {
-    showproducts(searchedProducts);
-  }
-}
-
-// Sorting Item Asc //
-
-function sortNameAsc() {
-  let sortedProducts = products.sort((a, b) => {
-    if (a.product_name > b.id) return 1;
-    if (a.product_name < b.id) return -1;
-    return 0;
-  });
-  showproducts(sortedProducts);
-}
-
-// Sorting Items  Descending //
-function sortNameDesc() {
-  let sortedProducts = products.sort((a, b) => {
-    if (a.product_name > b.id) return 1;
-    if (a.product_name < b.id) return -1;
-    return 0;
-  });
-  sortedProducts.reverse();
-  showproducts(sortedProducts);
 }
 
 // Function to toggleCart //
@@ -152,7 +112,6 @@ function removeItem(id) {
   let product = products.data.find((item) => {
     return item.id == id;
   });
-  //console.log(product);
 
   cart.splice(
     cart.findIndex((a) => a.id === product.id),
