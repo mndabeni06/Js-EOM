@@ -1,5 +1,6 @@
 let products = [];
 let cart = [];
+const mystorage = window.localStorage;
 console.log(cart);
 //* Fetching Products from the Api*//
 fetch("https://ancient-dawn-92955.herokuapp.com/get_products/")
@@ -75,7 +76,7 @@ function toggleCart() {
   document.querySelector("#cart").classList.toggle("active");
 }
 
-// Removing Items from the cart //
+// Deleting Items from the cart //
 
 function deleteProduct(id1) {
   let product = products.data.find((item) => {
@@ -118,4 +119,34 @@ function removeItem(id) {
     1
   );
   renderCart(cart);
+}
+
+// Addding Products //
+
+function addtocatalogue() {
+  fetch("https://ancient-dawn-92955.herokuapp.com/create-products/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `jwt ${mystorage.getItem("jwt-token")}`,
+    },
+    body: JSON.stringify({
+      prod_name: document.getElementById("product_name").value,
+      price: document.getElementById("price").value,
+      description: document.getElementById("description").value,
+      image: document.getElementById("image").value,
+    }),
+  })
+    .then((response) => response.json)
+    .then((data) => {
+      console.log(data);
+      console.log("success");
+      if (data["description"] == "Product added succesfully") {
+        alert("product added successfuly");
+        window.location.href = "./products.html";
+      } else {
+        alert("did not add!, please make sure the information is correct.");
+        window.location.href = "./products.html";
+      }
+    });
 }
